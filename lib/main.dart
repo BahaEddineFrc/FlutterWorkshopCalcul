@@ -52,10 +52,10 @@ class _CalculatorPage extends State<Calculator> {
         children: <Widget>[
 
           Padding(padding: EdgeInsets.all(16.0),
-              child: Text("$operation",style:TextStyle(fontSize: 30.0))
+              child: Text("$operation",style:TextStyle(fontSize: 35.0))
           ),
           Padding(padding: EdgeInsets.all(16.0),
-              child: Text("Result = $res",style:TextStyle(fontSize: 25.0))),
+              child: Text("Result = $res",style:TextStyle(fontSize: 30.0))),
 
           Row(children: <Widget>[
             RaisedButton(onPressed: () => _putVar(7), child: Text('7')),
@@ -91,10 +91,10 @@ class _CalculatorPage extends State<Calculator> {
 
   void _toast() {
     Fluttertoast.showToast(
-        msg: "This is Toast messaget",
+        msg: "This is a FloatingActionButton",
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIos: 1
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIos: 2
     );
   }
 

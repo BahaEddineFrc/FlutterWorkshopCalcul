@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(MyApp());
@@ -44,9 +45,9 @@ class _CalculatorPage extends State<Calculator> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.navigate_next), onPressed: () =>_toast),
+        child: Icon(Icons.navigate_next), onPressed: ()=>_toast()),
 
-      body: Column(
+      body: Builder( builder: (context) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
 
@@ -57,7 +58,7 @@ class _CalculatorPage extends State<Calculator> {
               child: Text("Result = $res",style:TextStyle(fontSize: 25.0))),
 
           Row(children: <Widget>[
-            FlatButton(onPressed: () => _putVar(7), child: Text('7')),
+            RaisedButton(onPressed: () => _putVar(7), child: Text('7')),
             RaisedButton(onPressed: () => _putVar(8), child: Text('8')),
             RaisedButton(onPressed: () => _putVar(9), child: Text('9')),
             RaisedButton(onPressed: () => _putVar(' + '), child: Text('+')),
@@ -82,20 +83,18 @@ class _CalculatorPage extends State<Calculator> {
             RaisedButton(onPressed: () => _putVar(' / '), child: Text('/')),
           ], mainAxisAlignment: MainAxisAlignment.center)
         ],
-      ),
+      )),
     );
   }
 
  ///***************** methods ********************
 
   void _toast() {
-    final scaffold = Scaffold.of(context);
-    scaffold.showSnackBar(
-      SnackBar(
-        content: const Text('SnackBar example'),
-        action: SnackBarAction(
-            label: 'HIDE', onPressed: scaffold.hideCurrentSnackBar),
-      ),
+    Fluttertoast.showToast(
+        msg: "This is Toast messaget",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIos: 1
     );
   }
 
